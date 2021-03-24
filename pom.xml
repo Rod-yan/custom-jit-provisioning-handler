@@ -10,9 +10,10 @@
         <version>1.2</version>
     </parent>
 
-    <groupId>org.wso2.carbon.handler.claim.custom</groupId>
-    <artifactId>custom-claim-handler-abboy</artifactId>
-    <packaging>bundle</packaging>
+    <groupId>com.mycompany.wso2.carbon.identity.jit.provisioning.handler</groupId>
+    <artifactId>com.mycompany.wso2.carbon.identity.jit.provisioning.handler</artifactId>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -35,29 +36,6 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>3.2.0</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Bundle-Name>${project.artifactId}</Bundle-Name>
-                        <Bundle-Description>Custom claim handler (ABB Oy)</Bundle-Description>
-                        <Private-Package>org.wso2.carbon.handler.claim.custom.internal</Private-Package>
-                        <Import-Package>
-                            org.osgi.framework; version="${import.osgi.framework.version.range}",
-                            org.osgi.service.component; version="${import.osgi.service.component.version.range}"
-                        </Import-Package>
-                        <Export-Package>
-                            !org.wso2.carbon.handler.claim.custom.internal.CustomClaimHandlerServiceComponent,
-                            org.wso2.carbon.handler.claim.custom.*
-                        </Export-Package>
-                        <DynamicImport-Package>*</DynamicImport-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-            <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.1</version>
                 <inherited>true</inherited>
@@ -71,11 +49,7 @@
     </build>
 
     <properties>
-
         <carbon.identity.framework.version>5.18.187</carbon.identity.framework.version>
-        <import.osgi.framework.version.range>[1.9,2.0)</import.osgi.framework.version.range>
-        <import.osgi.service.component.version.range>[1.2.0,2.0)</import.osgi.service.component.version.range>
         <ds-annotations.version>1.2.10</ds-annotations.version>
-
     </properties>
 </project>
